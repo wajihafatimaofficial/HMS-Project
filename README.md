@@ -11,6 +11,6 @@ Additional Features
 ====================
 
 1- Warnings before cancellations.
-2- Checking possibility before reservation cancelation.
-3- Rent prices calculation on basis of stay period and type of room.
-4- Automatic checkin period calculation with checkin and checkout date. 
+2- Checking possibility before reservation cancellation.
+3- Automatic checkin period calculation with checkin and checkout date.
+4- Rent prices calculation on basis of stay period and type of room.
