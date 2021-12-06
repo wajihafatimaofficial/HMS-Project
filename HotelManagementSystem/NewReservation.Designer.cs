@@ -50,14 +50,16 @@
             this.Contact = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CheckInPeriod = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.CheckInPeriod = new System.Windows.Forms.ComboBox();
+            this.CheckoutDate = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
             this.TChildren = new System.Windows.Forms.ComboBox();
             this.TAdults = new System.Windows.Forms.ComboBox();
             this.TGuests = new System.Windows.Forms.ComboBox();
             this.RoomType = new System.Windows.Forms.ComboBox();
-            this.CheckInDate = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
+            this.CheckInDate = new System.Windows.Forms.DateTimePicker();
             this.Save = new System.Windows.Forms.Button();
             this.Reset = new System.Windows.Forms.Button();
             this.Payment = new System.Windows.Forms.GroupBox();
@@ -67,11 +69,13 @@
             this.Amount = new System.Windows.Forms.Label();
             this.Nameerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.contactError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.EmailError = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Payment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Nameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmailError)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -232,6 +236,7 @@
             this.GuestName.Name = "GuestName";
             this.GuestName.Size = new System.Drawing.Size(188, 22);
             this.GuestName.TabIndex = 16;
+            this.GuestName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GuestName_KeyPress);
             this.GuestName.Validating += new System.ComponentModel.CancelEventHandler(this.Name_validating);
             // 
             // NIC
@@ -262,17 +267,20 @@
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(188, 22);
             this.Email.TabIndex = 14;
+            this.Email.Validating += new System.ComponentModel.CancelEventHandler(this.Email_Validating);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.CheckInPeriod);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.CheckoutDate);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.TChildren);
             this.groupBox2.Controls.Add(this.TAdults);
             this.groupBox2.Controls.Add(this.TGuests);
             this.groupBox2.Controls.Add(this.RoomType);
-            this.groupBox2.Controls.Add(this.CheckInDate);
             this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.CheckInDate);
             this.groupBox2.Controls.Add(this.TGuestsLabel);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.TChikdernLabel);
@@ -280,36 +288,49 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Location = new System.Drawing.Point(372, 108);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 281);
+            this.groupBox2.Size = new System.Drawing.Size(335, 318);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rserervation Details";
             // 
+            // CheckInPeriod
+            // 
+            this.CheckInPeriod.AutoSize = true;
+            this.CheckInPeriod.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CheckInPeriod.ForeColor = System.Drawing.Color.Blue;
+            this.CheckInPeriod.Location = new System.Drawing.Point(126, 280);
+            this.CheckInPeriod.Name = "CheckInPeriod";
+            this.CheckInPeriod.Size = new System.Drawing.Size(14, 16);
+            this.CheckInPeriod.TabIndex = 19;
+            this.CheckInPeriod.Text = "0";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(251, 241);
+            this.label8.Location = new System.Drawing.Point(188, 280);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 16);
             this.label8.TabIndex = 18;
             this.label8.Text = "Day(s)";
             // 
-            // CheckInPeriod
+            // CheckoutDate
             // 
-            this.CheckInPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CheckInPeriod.FormattingEnabled = true;
-            this.CheckInPeriod.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.CheckInPeriod.Location = new System.Drawing.Point(117, 234);
-            this.CheckInPeriod.Name = "CheckInPeriod";
-            this.CheckInPeriod.Size = new System.Drawing.Size(128, 24);
-            this.CheckInPeriod.TabIndex = 17;
-            this.CheckInPeriod.SelectedIndexChanged += new System.EventHandler(this.CheckInPeriod_SelectedIndexChanged);
-            this.CheckInPeriod.SelectedValueChanged += new System.EventHandler(this.CheckInPeriod_SelectedValueChanged);
+            this.CheckoutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.CheckoutDate.Location = new System.Drawing.Point(117, 238);
+            this.CheckoutDate.Name = "CheckoutDate";
+            this.CheckoutDate.Size = new System.Drawing.Size(182, 22);
+            this.CheckoutDate.TabIndex = 12;
+            this.CheckoutDate.Value = new System.DateTime(2021, 12, 7, 19, 32, 0, 0);
+            this.CheckoutDate.ValueChanged += new System.EventHandler(this.CheckoutDate_ValueChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 238);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 16);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Checkout Date";
             // 
             // TChildren
             // 
@@ -389,28 +410,29 @@
             this.RoomType.SelectedIndexChanged += new System.EventHandler(this.RoomType_SelectedIndexChanged);
             this.RoomType.SelectedValueChanged += new System.EventHandler(this.RoomType_SelectedValueChanged);
             // 
-            // CheckInDate
-            // 
-            this.CheckInDate.Location = new System.Drawing.Point(117, 193);
-            this.CheckInDate.Name = "CheckInDate";
-            this.CheckInDate.Size = new System.Drawing.Size(182, 22);
-            this.CheckInDate.TabIndex = 12;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 238);
+            this.label13.Location = new System.Drawing.Point(6, 280);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 16);
             this.label13.TabIndex = 11;
             this.label13.Text = "CheckIn Period";
+            // 
+            // CheckInDate
+            // 
+            this.CheckInDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.CheckInDate.Location = new System.Drawing.Point(117, 193);
+            this.CheckInDate.Name = "CheckInDate";
+            this.CheckInDate.Size = new System.Drawing.Size(182, 22);
+            this.CheckInDate.TabIndex = 12;
             // 
             // Save
             // 
             this.Save.BackColor = System.Drawing.Color.ForestGreen;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Save.Location = new System.Drawing.Point(601, 496);
+            this.Save.Location = new System.Drawing.Point(601, 488);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(106, 32);
             this.Save.TabIndex = 14;
@@ -423,7 +445,7 @@
             this.Reset.BackColor = System.Drawing.Color.Red;
             this.Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reset.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Reset.Location = new System.Drawing.Point(601, 436);
+            this.Reset.Location = new System.Drawing.Point(406, 488);
             this.Reset.Name = "Reset";
             this.Reset.Size = new System.Drawing.Size(106, 32);
             this.Reset.TabIndex = 15;
@@ -439,7 +461,7 @@
             this.Payment.Controls.Add(this.Amount);
             this.Payment.Location = new System.Drawing.Point(52, 415);
             this.Payment.Name = "Payment";
-            this.Payment.Size = new System.Drawing.Size(525, 113);
+            this.Payment.Size = new System.Drawing.Size(297, 113);
             this.Payment.TabIndex = 16;
             this.Payment.TabStop = false;
             this.Payment.Text = "Payment";
@@ -452,15 +474,15 @@
             this.payment_method.Items.AddRange(new object[] {
             "Cash",
             "Card"});
-            this.payment_method.Location = new System.Drawing.Point(329, 47);
+            this.payment_method.Location = new System.Drawing.Point(123, 44);
             this.payment_method.Name = "payment_method";
-            this.payment_method.Size = new System.Drawing.Size(182, 24);
+            this.payment_method.Size = new System.Drawing.Size(137, 24);
             this.payment_method.TabIndex = 17;
             // 
             // paymethod
             // 
             this.paymethod.AutoSize = true;
-            this.paymethod.Location = new System.Drawing.Point(209, 47);
+            this.paymethod.Location = new System.Drawing.Point(6, 47);
             this.paymethod.Name = "paymethod";
             this.paymethod.Size = new System.Drawing.Size(111, 16);
             this.paymethod.TabIndex = 14;
@@ -471,7 +493,7 @@
             this.amountRs.AutoSize = true;
             this.amountRs.Cursor = System.Windows.Forms.Cursors.Default;
             this.amountRs.ForeColor = System.Drawing.Color.Blue;
-            this.amountRs.Location = new System.Drawing.Point(89, 47);
+            this.amountRs.Location = new System.Drawing.Point(120, 89);
             this.amountRs.Name = "amountRs";
             this.amountRs.Size = new System.Drawing.Size(14, 16);
             this.amountRs.TabIndex = 13;
@@ -480,7 +502,7 @@
             // Amount
             // 
             this.Amount.AutoSize = true;
-            this.Amount.Location = new System.Drawing.Point(6, 47);
+            this.Amount.Location = new System.Drawing.Point(59, 89);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(55, 16);
             this.Amount.TabIndex = 12;
@@ -494,11 +516,15 @@
             // 
             this.contactError.ContainerControl = this;
             // 
+            // EmailError
+            // 
+            this.EmailError.ContainerControl = this;
+            // 
             // NewReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 579);
+            this.ClientSize = new System.Drawing.Size(782, 574);
             this.Controls.Add(this.Payment);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.Save);
@@ -519,6 +545,7 @@
             this.Payment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Nameerror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmailError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,7 +580,6 @@
         private System.Windows.Forms.ComboBox TAdults;
         private System.Windows.Forms.ComboBox TGuests;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox CheckInPeriod;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Reset;
         private System.Windows.Forms.GroupBox Payment;
@@ -563,5 +589,9 @@
         private System.Windows.Forms.Label Amount;
         private System.Windows.Forms.ErrorProvider Nameerror;
         private System.Windows.Forms.ErrorProvider contactError;
+        private System.Windows.Forms.ErrorProvider EmailError;
+        private System.Windows.Forms.DateTimePicker CheckoutDate;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label CheckInPeriod;
     }
 }

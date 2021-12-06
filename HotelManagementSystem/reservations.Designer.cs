@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.priceList = new System.Windows.Forms.Button();
             this.CancelReservation = new System.Windows.Forms.Button();
             this.View_Reservations = new System.Windows.Forms.Button();
             this.new_reservation = new System.Windows.Forms.Button();
-            this.priceList = new System.Windows.Forms.Button();
             this.reservation_panel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,8 +46,21 @@
             this.panel1.Controls.Add(this.new_reservation);
             this.panel1.Location = new System.Drawing.Point(-2, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(801, 46);
+            this.panel1.Size = new System.Drawing.Size(876, 46);
             this.panel1.TabIndex = 0;
+            // 
+            // priceList
+            // 
+            this.priceList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.priceList.FlatAppearance.BorderSize = 0;
+            this.priceList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.priceList.Location = new System.Drawing.Point(507, 3);
+            this.priceList.Name = "priceList";
+            this.priceList.Size = new System.Drawing.Size(162, 43);
+            this.priceList.TabIndex = 2;
+            this.priceList.Text = "View Price List";
+            this.priceList.UseVisualStyleBackColor = true;
+            this.priceList.Click += new System.EventHandler(this.priceList_Click);
             // 
             // CancelReservation
             // 
@@ -88,35 +101,22 @@
             this.new_reservation.UseVisualStyleBackColor = true;
             this.new_reservation.Click += new System.EventHandler(this.new_reservation_Click);
             // 
-            // priceList
-            // 
-            this.priceList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.priceList.FlatAppearance.BorderSize = 0;
-            this.priceList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.priceList.Location = new System.Drawing.Point(507, 3);
-            this.priceList.Name = "priceList";
-            this.priceList.Size = new System.Drawing.Size(162, 43);
-            this.priceList.TabIndex = 2;
-            this.priceList.Text = "View Price List";
-            this.priceList.UseVisualStyleBackColor = true;
-            this.priceList.Click += new System.EventHandler(this.priceList_Click);
-            // 
             // reservation_panel
             // 
             this.reservation_panel.BackgroundImage = global::HotelManagementSystem.Properties.Resources.logo;
             this.reservation_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.reservation_panel.Location = new System.Drawing.Point(1, 37);
             this.reservation_panel.Name = "reservation_panel";
-            this.reservation_panel.Size = new System.Drawing.Size(800, 550);
+            this.reservation_panel.Size = new System.Drawing.Size(782, 579);
             this.reservation_panel.TabIndex = 1;
             // 
             // reservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 579);
-            this.Controls.Add(this.reservation_panel);
+            this.ClientSize = new System.Drawing.Size(782, 600);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.reservation_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "reservations";
             this.ShowIcon = false;

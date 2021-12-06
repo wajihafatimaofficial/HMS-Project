@@ -35,7 +35,7 @@ namespace HotelManagementSystem
 
         private void Complaints_Feedback_Click(object sender, EventArgs e)
         {
-            loadform(new Complaints_Feedbacks());
+            loadform(new Complains());
         }
 
         private void Staff_Click(object sender, EventArgs e)

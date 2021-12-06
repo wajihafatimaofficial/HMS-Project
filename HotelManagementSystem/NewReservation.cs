@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Text.RegularExpressions;
 namespace HotelManagementSystem
 {
     public partial class NewReservation : Form
@@ -51,30 +51,31 @@ namespace HotelManagementSystem
             Address.Clear();
            
             CheckInDate.ResetText();
-           
+            CheckoutDate.ResetText();
         }
+        private void CheckoutDate_ValueChanged(object sender, EventArgs e)
+        {
+            TimeSpan Period = Convert.ToDateTime(CheckoutDate.Value.Date) - Convert.ToDateTime(CheckInDate.Value.Date);
+            CheckInPeriod.Text = Convert.ToString(Period.Days);
+            cal();
 
+        }
         private void Save_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
-            {
-                MessageBox.Show(GuestName.Text, "Demo App - Message!");
- 
-            }
+           
             try
             {
 
-            if (GuestName.Text != "" && Email.Text != "" && NIC.Text != "" && Contact.Text != "" && Gender.Text != "" && Address.Text != "" && RoomType.Text != "" && TGuests.Text != "" && TAdults.Text != "" && TChildren.Text != "" && CheckInDate.Text != "" && CheckInPeriod.Text != "" && Payment.Text != "" && payment_method.Text != "")
+            if (GuestName.Text != "" && Email.Text != "" && NIC.Text != "" && Contact.Text != "" && Gender.Text != "" && Address.Text != "" && RoomType.Text != "" && TGuests.Text != "" && TAdults.Text != "" && TChildren.Text != "" && CheckInDate.Text != ""  && CheckoutDate.Text != ""  && Payment.Text != "" && payment_method.Text != "")
                 {
-                   
-
+                  
                     string connetionString;
                     MySqlConnection cnn;
                     connetionString = "datasource=localhost;port=3306;username=root;password=";
                     cnn = new MySqlConnection(connetionString);
 
 
-                    string query = "Insert into hotelmanagementsystem.reservations(Name,Email,Contact,NIC,Gender,Address,RoomType,TotalGuests,TotalAdults,TotalChildrens,CheckInDate,CheckInPeriod,PaymentMethod,PaymentAmount) values('" + this.GuestName.Text + "', '" + this.Email.Text + "', '" + this.Contact.Text + "', '" + this.NIC.Text + "', '" + this.Gender.Text + "'  , '" + this.Address.Text + "' , '" + this.RoomType.Text + "', '" + this.TGuests.Text + "' , '" + this.TAdults.Text + "' , '" + this.TChildren.Text + "' , '" + this.CheckInDate.Text + "', '" + this.CheckInPeriod.Text + "', '" + this.payment_method.Text + "' , '" + this.amountRs.Text + "')";
+                    string query = "Insert into hotelmanagementsystem.reservations(Name,Email,Contact,NIC,Gender,Address,RoomType,TotalGuests,TotalAdults,TotalChildrens,CheckInDate,CheckOutDate,CheckInPeriod,PaymentMethod,PaymentAmount) values('" + this.GuestName.Text + "', '" + this.Email.Text + "', '" + this.Contact.Text + "', '" + this.NIC.Text + "', '" + this.Gender.Text + "'  , '" + this.Address.Text + "' , '" + this.RoomType.Text + "', '" + this.TGuests.Text + "' , '" + this.TAdults.Text + "' , '" + this.TChildren.Text + "' , '" + this.CheckInDate.Text + "','"+this.CheckoutDate.Text+"' ,'" + this.CheckInPeriod.Text + "', '" + this.payment_method.Text + "' , '" + this.amountRs.Text + "')";
 
                     MySqlCommand cmd = new MySqlCommand(query, cnn);
                     cnn.Open();
@@ -150,7 +151,7 @@ namespace HotelManagementSystem
             if (r == "Twin") { ramount = 7000; }
             if (r == "Double-double") { ramount = 2000; }
 
-            int d = Convert.ToInt32(CheckInPeriod.SelectedItem) ;
+            int d = Convert.ToInt32(CheckInPeriod.Text) ;
             damount = d * 1000;
             if (d == 1) { damount = 0; }
             totalamount = ramount + damount;
@@ -261,20 +262,20 @@ namespace HotelManagementSystem
             {
                 e.Cancel = true;
                 Contact.Focus();
-                Nameerror.SetError(Contact, "Contact should not be left blank!");
+                contactError.SetError(Contact, "Contact should not be left blank!");
             }
 
             if (Contact.Text.Length != 11)
             {
                 e.Cancel = true;
                 Contact.Focus();
-                Nameerror.SetError(Contact, "NIC must contain 11 digits!");
+                contactError.SetError(Contact, "Contact number must contain 11 digits!");
             }
 
             else
             {
                 e.Cancel = false;
-                Nameerror.SetError(Contact, "");
+                contactError.SetError(Contact, "");
             }
         }
 
@@ -293,6 +294,34 @@ namespace HotelManagementSystem
                 Contact.Text = Contact.Text.Remove(Contact.Text.Length - 1);
             }
         }
+
+        private void GuestName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsSymbol(e.KeyChar)  || Char.IsPunctuation(e.KeyChar))
+            {
+                MessageBox.Show("Name field can only contains characters.");
+                e.Handled = true;
+            }
+        }
+
+        private void Email_Validating(object sender, CancelEventArgs e)
+        {
+            Regex regex = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+            bool isValid = regex.IsMatch(Email.Text.Trim());
+            if (!isValid)
+            {
+                e.Cancel = true;
+                Email.Focus();
+                EmailError.SetError(Email, "Invalid email format!");
+            }
+            else
+            {
+                e.Cancel = false;
+                EmailError.SetError(Email, "");
+            }
+        }
+
+        
     }
 
 
