@@ -1,8 +1,8 @@
-# HotelManagementSystem
+# Introduction
 It is an admin-based C# project. It helps to manage reservaton, staff and complaints details. Admin can add, view , update and cancel reservation, staff and complaints details.
 
-There are validations for:
-==========================
+Validations:
+===========
 1- Wrong fields entries.
 2- empty entries.
 3- No. of digits.
