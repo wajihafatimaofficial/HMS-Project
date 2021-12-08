@@ -111,6 +111,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addStaff.Designer.cs">
+      <DependentUpon>addStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="CancelComplain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RemoveStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveStaff.Designer.cs">
+      <DependentUpon>RemoveStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="reservations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,11 +219,23 @@
     <Compile Include="ViewComplain.Designer.cs">
       <DependentUpon>ViewComplain.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewMemberDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMemberDetail.Designer.cs">
+      <DependentUpon>ViewMemberDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewReservations.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewReservations.Designer.cs">
       <DependentUpon>ViewReservations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStaffMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewStaffMembers.Designer.cs">
+      <DependentUpon>ViewStaffMembers.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +247,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="addStaff.resx">
+      <DependentUpon>addStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CancelComplain.resx">
       <DependentUpon>CancelComplain.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,17 +281,29 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RemoveStaff.resx">
+      <DependentUpon>RemoveStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reservations.resx">
       <DependentUpon>reservations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomAvalibility.resx">
       <DependentUpon>RoomAvalibility.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Staff.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewComplain.resx">
       <DependentUpon>ViewComplain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewMemberDetail.resx">
+      <DependentUpon>ViewMemberDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewReservations.resx">
       <DependentUpon>ViewReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewStaffMembers.resx">
+      <DependentUpon>ViewStaffMembers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +324,10 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="Icon1.ico" />
+    <None Include="Images\complain.png" />
+    <None Include="Images\complaint.png" />
+    <None Include="Images\room.png" />
+    <None Include="Images\staff.png" />
     <None Include="Images\cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

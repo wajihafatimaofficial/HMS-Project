@@ -53,5 +53,10 @@ namespace HotelManagementSystem
         {
             loadform2(new RoomAvalibility());
         }
+
+        private void reservation_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -16,5 +16,35 @@ namespace HotelManagementSystem
         {
             InitializeComponent();
         }
+        public void loadform2(object Form)
+        {
+            if (this.reservation_panel.Controls.Count > 0)
+                this.reservation_panel.Controls.RemoveAt(0);
+            Form f = Form as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            this.reservation_panel.Controls.Add(f);
+            this.reservation_panel.Tag = f;
+            f.Show();
+        }
+        private void CheckAvalibility_Click(object sender, EventArgs e)
+        {
+            loadform2(new ViewMemberDetail());
+        }
+
+        private void new_member_Click(object sender, EventArgs e)
+        {
+            loadform2(new addStaff());
+        }
+
+        private void RemoveMember_Click(object sender, EventArgs e)
+        {
+            loadform2(new RemoveStaff());
+        }
+
+        private void View_Staff_Click(object sender, EventArgs e)
+        {
+            loadform2(new ViewStaffMembers());
+        }
     }
 }

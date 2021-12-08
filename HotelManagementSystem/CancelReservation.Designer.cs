@@ -457,7 +457,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 574);
+            this.ClientSize = new System.Drawing.Size(800, 574);
             this.Controls.Add(this.RoomNoData);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.CheckoutDateData);

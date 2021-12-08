@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CheckAvalibility = new System.Windows.Forms.Button();
             this.priceList = new System.Windows.Forms.Button();
             this.CancelReservation = new System.Windows.Forms.Button();
             this.View_Reservations = new System.Windows.Forms.Button();
             this.new_reservation = new System.Windows.Forms.Button();
             this.reservation_panel = new System.Windows.Forms.Panel();
-            this.CheckAvalibility = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(876, 46);
             this.panel1.TabIndex = 0;
+            // 
+            // CheckAvalibility
+            // 
+            this.CheckAvalibility.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.CheckAvalibility.FlatAppearance.BorderSize = 0;
+            this.CheckAvalibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckAvalibility.Location = new System.Drawing.Point(620, 3);
+            this.CheckAvalibility.Name = "CheckAvalibility";
+            this.CheckAvalibility.Size = new System.Drawing.Size(162, 43);
+            this.CheckAvalibility.TabIndex = 3;
+            this.CheckAvalibility.Text = "Check Room Avalbility";
+            this.CheckAvalibility.UseVisualStyleBackColor = true;
+            this.CheckAvalibility.Click += new System.EventHandler(this.CheckAvalibility_Click);
             // 
             // priceList
             // 
@@ -105,25 +118,13 @@
             // 
             // reservation_panel
             // 
-            this.reservation_panel.BackgroundImage = global::HotelManagementSystem.Properties.Resources.logo;
+            this.reservation_panel.BackColor = System.Drawing.Color.White;
+            this.reservation_panel.BackgroundImage = global::HotelManagementSystem.Properties.Resources.room;
             this.reservation_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.reservation_panel.Location = new System.Drawing.Point(1, 37);
             this.reservation_panel.Name = "reservation_panel";
             this.reservation_panel.Size = new System.Drawing.Size(782, 579);
             this.reservation_panel.TabIndex = 1;
-            // 
-            // CheckAvalibility
-            // 
-            this.CheckAvalibility.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.CheckAvalibility.FlatAppearance.BorderSize = 0;
-            this.CheckAvalibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckAvalibility.Location = new System.Drawing.Point(620, 3);
-            this.CheckAvalibility.Name = "CheckAvalibility";
-            this.CheckAvalibility.Size = new System.Drawing.Size(162, 43);
-            this.CheckAvalibility.TabIndex = 3;
-            this.CheckAvalibility.Text = "Check Room Avalbility";
-            this.CheckAvalibility.UseVisualStyleBackColor = true;
-            this.CheckAvalibility.Click += new System.EventHandler(this.CheckAvalibility_Click);
             // 
             // reservations
             // 

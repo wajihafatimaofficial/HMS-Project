@@ -351,7 +351,7 @@ namespace HotelManagementSystem
 
                 Contact.Focus();
                 MessageBox.Show("Please enter only numbers.");
-                Contact.Text = Contact.Text.Remove(Contact.Text.Length - 1);
+                Contact.Text = Contact.Text.Remove(Contact.Text.Length - Contact.SelectionLength);
             }
         }
 
@@ -381,7 +381,25 @@ namespace HotelManagementSystem
             }
         }
 
-        
+        private void Payment_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

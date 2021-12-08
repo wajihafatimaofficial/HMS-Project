@@ -54,7 +54,7 @@
             this.viewpolicy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.viewpolicy.FlatAppearance.BorderSize = 0;
             this.viewpolicy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.viewpolicy.Location = new System.Drawing.Point(507, 3);
+            this.viewpolicy.Location = new System.Drawing.Point(493, 4);
             this.viewpolicy.Name = "viewpolicy";
             this.viewpolicy.Size = new System.Drawing.Size(162, 43);
             this.viewpolicy.TabIndex = 2;
@@ -70,7 +70,7 @@
             this.CancelComplain.Name = "CancelComplain";
             this.CancelComplain.Size = new System.Drawing.Size(162, 43);
             this.CancelComplain.TabIndex = 1;
-            this.CancelComplain.Text = "Cancel Complain";
+            this.CancelComplain.Text = "Cancel Complaint";
             this.CancelComplain.UseVisualStyleBackColor = true;
             this.CancelComplain.Click += new System.EventHandler(this.CancelComplain_Click);
             // 
@@ -83,7 +83,7 @@
             this.View_Complains.Name = "View_Complains";
             this.View_Complains.Size = new System.Drawing.Size(162, 43);
             this.View_Complains.TabIndex = 1;
-            this.View_Complains.Text = "View Complains";
+            this.View_Complains.Text = "View Complaints";
             this.View_Complains.UseVisualStyleBackColor = true;
             this.View_Complains.Click += new System.EventHandler(this.View_Complains_Click);
             // 
@@ -96,13 +96,14 @@
             this.new_complain.Name = "new_complain";
             this.new_complain.Size = new System.Drawing.Size(162, 43);
             this.new_complain.TabIndex = 0;
-            this.new_complain.Text = "New Complain";
+            this.new_complain.Text = "New Complaint";
             this.new_complain.UseVisualStyleBackColor = true;
             this.new_complain.Click += new System.EventHandler(this.new_complain_Click);
             // 
             // complain_panel
             // 
-            this.complain_panel.BackgroundImage = global::HotelManagementSystem.Properties.Resources.logo;
+            this.complain_panel.BackColor = System.Drawing.Color.White;
+            this.complain_panel.BackgroundImage = global::HotelManagementSystem.Properties.Resources.complain1;
             this.complain_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.complain_panel.Location = new System.Drawing.Point(-1, 43);
             this.complain_panel.Name = "complain_panel";
