@@ -48,5 +48,10 @@ namespace HotelManagementSystem
         {
             loadform2(new priceList());
         }
+
+        private void CheckAvalibility_Click(object sender, EventArgs e)
+        {
+            loadform2(new RoomAvalibility());
+        }
     }
 }

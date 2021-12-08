@@ -29,18 +29,24 @@
         private void InitializeComponent()
         {
             this.loginpanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.Login_button = new System.Windows.Forms.Button();
             this.Password = new System.Windows.Forms.TextBox();
             this.UserID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.loginpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // loginpanel
             // 
+            this.loginpanel.AutoSize = true;
+            this.loginpanel.Controls.Add(this.pictureBox2);
+            this.loginpanel.Controls.Add(this.label3);
             this.loginpanel.Controls.Add(this.pictureBox1);
             this.loginpanel.Controls.Add(this.Login_button);
             this.loginpanel.Controls.Add(this.Password);
@@ -52,14 +58,26 @@
             this.loginpanel.Size = new System.Drawing.Size(788, 535);
             this.loginpanel.TabIndex = 20;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(328, 196);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 27);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Admin Login";
+            // 
             // Login_button
             // 
             this.Login_button.BackColor = System.Drawing.Color.ForestGreen;
             this.Login_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Login_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_button.ForeColor = System.Drawing.Color.Black;
-            this.Login_button.Location = new System.Drawing.Point(343, 417);
+            this.Login_button.Location = new System.Drawing.Point(240, 417);
             this.Login_button.Name = "Login_button";
-            this.Login_button.Size = new System.Drawing.Size(106, 32);
+            this.Login_button.Size = new System.Drawing.Size(319, 51);
             this.Login_button.TabIndex = 21;
             this.Login_button.Text = "LOGIN";
             this.Login_button.UseVisualStyleBackColor = false;
@@ -83,35 +101,46 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(235, 344);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 27);
+            this.label1.Size = new System.Drawing.Size(108, 27);
             this.label1.TabIndex = 3;
             this.label1.Text = "Password:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(235, 263);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 27);
+            this.label2.Size = new System.Drawing.Size(113, 27);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Name:";
+            this.label2.Text = "Username:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::HotelManagementSystem.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(221, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(297, 52);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(367, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Size = new System.Drawing.Size(193, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::HotelManagementSystem.Properties.Resources.cross;
+            this.pictureBox2.Location = new System.Drawing.Point(751, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(21, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // login
             // 
@@ -127,7 +156,9 @@
             this.loginpanel.ResumeLayout(false);
             this.loginpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -140,5 +171,7 @@
         private System.Windows.Forms.TextBox UserID;
         private System.Windows.Forms.Button Login_button;
         internal System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

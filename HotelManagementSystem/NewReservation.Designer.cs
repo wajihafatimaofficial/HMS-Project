@@ -320,7 +320,7 @@
             this.CheckoutDate.Name = "CheckoutDate";
             this.CheckoutDate.Size = new System.Drawing.Size(182, 22);
             this.CheckoutDate.TabIndex = 12;
-            this.CheckoutDate.Value = new System.DateTime(2021, 12, 7, 19, 32, 0, 0);
+            this.CheckoutDate.Value = new System.DateTime(2021, 12, 8, 0, 0, 0, 0);
             this.CheckoutDate.ValueChanged += new System.EventHandler(this.CheckoutDate_ValueChanged);
             // 
             // label10
@@ -464,7 +464,7 @@
             this.Payment.Size = new System.Drawing.Size(297, 113);
             this.Payment.TabIndex = 16;
             this.Payment.TabStop = false;
-            this.Payment.Text = "Payment";
+            this.Payment.Text = "Payment Details";
             // 
             // payment_method
             // 

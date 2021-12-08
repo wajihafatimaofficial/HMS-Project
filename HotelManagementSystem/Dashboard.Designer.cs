@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Checkouts = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.Staff = new System.Windows.Forms.Button();
             this.Complaints_Feedback = new System.Windows.Forms.Button();
             this.ReservationManagement = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.Checkouts);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.Staff);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.Complaints_Feedback);
@@ -55,20 +55,21 @@
             this.panel1.Size = new System.Drawing.Size(178, 615);
             this.panel1.TabIndex = 0;
             // 
-            // Checkouts
+            // button1
             // 
-            this.Checkouts.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Checkouts.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.Checkouts.FlatAppearance.BorderSize = 0;
-            this.Checkouts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Checkouts.ForeColor = System.Drawing.Color.White;
-            this.Checkouts.Location = new System.Drawing.Point(12, 305);
-            this.Checkouts.Name = "Checkouts";
-            this.Checkouts.Size = new System.Drawing.Size(100, 29);
-            this.Checkouts.TabIndex = 6;
-            this.Checkouts.Text = "Checkouts";
-            this.Checkouts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Checkouts.UseVisualStyleBackColor = false;
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(12, 340);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(163, 29);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Log Out";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Staff
             // 
@@ -77,7 +78,7 @@
             this.Staff.FlatAppearance.BorderSize = 0;
             this.Staff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Staff.ForeColor = System.Drawing.Color.White;
-            this.Staff.Location = new System.Drawing.Point(12, 181);
+            this.Staff.Location = new System.Drawing.Point(12, 196);
             this.Staff.Name = "Staff";
             this.Staff.Size = new System.Drawing.Size(100, 29);
             this.Staff.TabIndex = 5;
@@ -93,7 +94,7 @@
             this.Complaints_Feedback.FlatAppearance.BorderSize = 0;
             this.Complaints_Feedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Complaints_Feedback.ForeColor = System.Drawing.Color.White;
-            this.Complaints_Feedback.Location = new System.Drawing.Point(12, 376);
+            this.Complaints_Feedback.Location = new System.Drawing.Point(12, 288);
             this.Complaints_Feedback.Name = "Complaints_Feedback";
             this.Complaints_Feedback.Size = new System.Drawing.Size(163, 29);
             this.Complaints_Feedback.TabIndex = 2;
@@ -175,7 +176,7 @@
         private System.Windows.Forms.Button Complaints_Feedback;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Staff;
-        private System.Windows.Forms.Button Checkouts;
         private System.Windows.Forms.Label Welcomelabel;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -14,14 +14,7 @@ namespace HotelManagementSystem
     public partial class NewReservation : Form
     {
         public int TotalRooms = 40;
-        public  int TotalSingleRooms = 5;
-        public  int TotalDoubleRooms = 5;
-        public  int TotalTriplRooms = 5;
-        public int TotalQuadRooms = 5;
-        public int TotalQueenRooms = 5;
-        public  int TotalKingRooms = 5;
-        public  int TotalTwinRooms = 5;
-        public int TotalDDRooms = 5;
+        public int TTypeRooms = 5;
 
 
         public NewReservation()
@@ -60,31 +53,91 @@ namespace HotelManagementSystem
             cal();
 
         }
+       
+        
         private void Save_Click(object sender, EventArgs e)
         {
            
             try
             {
 
-            if (GuestName.Text != "" && Email.Text != "" && NIC.Text != "" && Contact.Text != "" && Gender.Text != "" && Address.Text != "" && RoomType.Text != "" && TGuests.Text != "" && TAdults.Text != "" && TChildren.Text != "" && CheckInDate.Text != ""  && CheckoutDate.Text != ""  && Payment.Text != "" && payment_method.Text != "")
+                if (GuestName.Text != "" && Email.Text != "" && NIC.Text != "" && Contact.Text != "" && Gender.Text != "" && Address.Text != "" && RoomType.Text != "" && TGuests.Text != "" && TAdults.Text != "" && TChildren.Text != "" && CheckInDate.Text != "" && CheckoutDate.Text != "" && Payment.Text != "" && payment_method.Text != "")
                 {
-                  
+
                     string connetionString;
                     MySqlConnection cnn;
                     connetionString = "datasource=localhost;port=3306;username=root;password=";
                     cnn = new MySqlConnection(connetionString);
 
 
-                    string query = "Insert into hotelmanagementsystem.reservations(Name,Email,Contact,NIC,Gender,Address,RoomType,TotalGuests,TotalAdults,TotalChildrens,CheckInDate,CheckOutDate,CheckInPeriod,PaymentMethod,PaymentAmount) values('" + this.GuestName.Text + "', '" + this.Email.Text + "', '" + this.Contact.Text + "', '" + this.NIC.Text + "', '" + this.Gender.Text + "'  , '" + this.Address.Text + "' , '" + this.RoomType.Text + "', '" + this.TGuests.Text + "' , '" + this.TAdults.Text + "' , '" + this.TChildren.Text + "' , '" + this.CheckInDate.Text + "','"+this.CheckoutDate.Text+"' ,'" + this.CheckInPeriod.Text + "', '" + this.payment_method.Text + "' , '" + this.amountRs.Text + "')";
-
-                    MySqlCommand cmd = new MySqlCommand(query, cnn);
+                    string q = "SELECT Count(RoomType) as total FROM  hotelmanagementsystem.reservations WHERE CheckInDate = '" + CheckInDate.Text+"' ";
+                    MySqlCommand c = new MySqlCommand(q, cnn);
                     cnn.Open();
-                    MySqlDataReader myReader;
-                    myReader = cmd.ExecuteReader();
-                    MessageBox.Show("New Reservation Confirmed");
-                    cnn.Close();
+                    c.CommandType = CommandType.Text;
+                    Int32 total = Convert.ToInt32(c.ExecuteScalar());
+
+                    if (total < TotalRooms)
+                    {
+                        string query1 = "SELECT Count(RoomType) as Count FROM  hotelmanagementsystem.reservations WHERE RoomType = '" + RoomType.Text + "'  ";
+                        MySqlCommand cmd1 = new MySqlCommand(query1, cnn);
+                        cmd1.CommandType = CommandType.Text;
+                        Int32 count = Convert.ToInt32(cmd1.ExecuteScalar());
+
+
+
+                        if (count >= 5)
+                        {
+                            string check = Convert.ToString(CheckInDate.Text);
+                            string query2 = "SELECT Count(CheckInDate) AS cd FROM  hotelmanagementsystem.reservations WHERE RoomType = '" + RoomType.Text + "' AND CheckInDate =  '"+ check+ "' " ;
+                            MySqlCommand cmd2 = new MySqlCommand(query2, cnn);
+                            cmd2.CommandType = CommandType.Text;
+                            Int32 cd = Convert.ToInt32(cmd2.ExecuteScalar());
+                           
+
+                            if (cd>=5)
+                            {
+                                string box_msg = "All the " + RoomType.Text + " rooms are booked on " + CheckInDate.Text + ". Please choose another room type if reservation is required instantly.";
+
+                                string box_title = "No " + RoomType.Text + "rooms available";
+
+                                MessageBox.Show(box_msg, box_title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else {
+                                string query = "Insert into hotelmanagementsystem.reservations(Name,Email,Contact,NIC,Gender,Address,RoomType,TotalGuests,TotalAdults,TotalChildrens,CheckInDate,CheckOutDate,CheckInPeriod,PaymentMethod,PaymentAmount) values('" + this.GuestName.Text + "', '" + this.Email.Text + "', '" + this.Contact.Text + "', '" + this.NIC.Text + "', '" + this.Gender.Text + "'  , '" + this.Address.Text + "' , '" + this.RoomType.Text + "', '" + this.TGuests.Text + "' , '" + this.TAdults.Text + "' , '" + this.TChildren.Text + "' , '" + this.CheckInDate.Text + "','" + this.CheckoutDate.Text + "' ,'" + this.CheckInPeriod.Text + "', '" + this.payment_method.Text + "' , '" + this.amountRs.Text + "')";
+
+                                MySqlCommand cmd = new MySqlCommand(query, cnn);
+
+                                MySqlDataReader myReader;
+                                myReader = cmd.ExecuteReader();
+                                MessageBox.Show("New Reservation Confirmed");
+                            }
+
+                        }
+                        else
+                        {
+
+                            string query = "Insert into hotelmanagementsystem.reservations(Name,Email,Contact,NIC,Gender,Address,RoomType,TotalGuests,TotalAdults,TotalChildrens,CheckInDate,CheckOutDate,CheckInPeriod,PaymentMethod,PaymentAmount) values('" + this.GuestName.Text + "', '" + this.Email.Text + "', '" + this.Contact.Text + "', '" + this.NIC.Text + "', '" + this.Gender.Text + "'  , '" + this.Address.Text + "' , '" + this.RoomType.Text + "', '" + this.TGuests.Text + "' , '" + this.TAdults.Text + "' , '" + this.TChildren.Text + "' , '" + this.CheckInDate.Text + "','" + this.CheckoutDate.Text + "' ,'" + this.CheckInPeriod.Text + "', '" + this.payment_method.Text + "' , '" + this.amountRs.Text + "')";
+
+                            MySqlCommand cmd = new MySqlCommand(query, cnn);
+
+                            MySqlDataReader myReader;
+                            myReader = cmd.ExecuteReader();
+                            MessageBox.Show("New Reservation Confirmed");
+                            cnn.Close();
+                        }
+                    }
+                    else {
+                        string box_msg = "All rooms are booked on " + CheckInDate.Text + ". Rooms can not be reserved furter for today.";
+
+                        string box_title = "No rooms are available";
+
+                        MessageBox.Show(box_msg, box_title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+                    }
                 }
 
+                
                 //displaying empty fields message
                 else
                 {
@@ -95,15 +148,17 @@ namespace HotelManagementSystem
                     MessageBox.Show(box_msg, box_title, MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
 
 
+             
                 }
+                
             }
             catch (System.Data.SqlClient.SqlException)
             {
 
                 MessageBox.Show("Connection failed !");
             }
-
             
+
         }
 
 
@@ -172,7 +227,12 @@ namespace HotelManagementSystem
 
         public void TAdults_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CheckTotal();
             
+        }
+
+        public void CheckTotal()
+        {
             int g = Convert.ToInt32(TGuests.Text);
             int a = Convert.ToInt32(TAdults.Text);
             if (g > a)
@@ -188,7 +248,7 @@ namespace HotelManagementSystem
 
             if (a == g)
             {
-       
+
                 TChildren.Text = "0";
             }
         }

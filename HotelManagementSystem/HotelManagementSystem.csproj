@@ -5,13 +5,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DC3956AA-A5D2-4372-9202-260469E9BF8F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>HotelManagementSystem</RootNamespace>
     <AssemblyName>HotelManagementSystem</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,6 +46,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -183,6 +189,12 @@
     <Compile Include="reservations.Designer.cs">
       <DependentUpon>reservations.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoomAvalibility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomAvalibility.Designer.cs">
+      <DependentUpon>RoomAvalibility.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +257,9 @@
     <EmbeddedResource Include="reservations.resx">
       <DependentUpon>reservations.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RoomAvalibility.resx">
+      <DependentUpon>RoomAvalibility.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewComplain.resx">
       <DependentUpon>ViewComplain.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,13 +283,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hoteldata.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="hoteldata_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>hoteldata.mdf</DependentUpon>
-    </Content>
+    <Content Include="icon.ico" />
+    <Content Include="Icon1.ico" />
+    <None Include="Images\cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

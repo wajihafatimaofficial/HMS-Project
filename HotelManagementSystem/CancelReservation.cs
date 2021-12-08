@@ -53,51 +53,56 @@ namespace HotelManagementSystem
             cmd.CommandType = CommandType.Text;
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            dr.Read();
-          
-            TimeSpan Period = Convert.ToDateTime(DateTime.Today.Date) - Convert.ToDateTime(dr["CheckInDate"]);
-
-            if (Period.Days < 0)
+            try
             {
-                if (dr.Read())
+                dr.Read();
+
+                TimeSpan Period = Convert.ToDateTime(DateTime.Today.Date) - Convert.ToDateTime(dr["CheckInDate"]);
+
+                if (Period.Days < 0)
                 {
-                    NameData.Text = dr["Name"].ToString();
-                    EmailData.Text = dr["Email"].ToString();
-                    ContactData.Text = dr["Contact"].ToString();
-                    NICData.Text = dr["NIC"].ToString();
-                    GenderData.Text = dr["Gender"].ToString();
-                    AddressData.Text = dr["Address"].ToString();
-                    RoomTypeData.Text = dr["RoomType"].ToString();
-                    TGuestsData.Text = dr["TotalGuests"].ToString();
-                    TAdultsData.Text = dr["TotalAdults"].ToString();
-                    TChildrenData.Text = dr["TotalChildrens"].ToString();
-                    CheckinDateData.Text = dr["CheckInDate"].ToString();
-                    CheckoutDateData.Text = dr["CheckOutDate"].ToString();
-                    ChecinPeriodData.Text = dr["CheckInPeriod"].ToString();
-                    PayMethodData.Text = dr["PaymentMethod"].ToString();
-                    PayAmountData.Text = dr["PaymentAmount"].ToString();
+                       NameData.Text = dr["Name"].ToString();
+                        EmailData.Text = dr["Email"].ToString();
+                        ContactData.Text = dr["Contact"].ToString();
+                        NICData.Text = dr["NIC"].ToString();
+                        GenderData.Text = dr["Gender"].ToString();
+                        AddressData.Text = dr["Address"].ToString();
+                        RoomTypeData.Text = dr["RoomType"].ToString();
+                        TGuestsData.Text = dr["TotalGuests"].ToString();
+                        TAdultsData.Text = dr["TotalAdults"].ToString();
+                        TChildrenData.Text = dr["TotalChildrens"].ToString();
+                        CheckinDateData.Text = dr["CheckInDate"].ToString();
+                        CheckoutDateData.Text = dr["CheckOutDate"].ToString();
+                        ChecinPeriodData.Text = dr["CheckInPeriod"].ToString();
+                        PayMethodData.Text = dr["PaymentMethod"].ToString();
+                        PayAmountData.Text = dr["PaymentAmount"].ToString();
 
-                    DelReservation.Show();
+                        DelReservation.Show();
+                        
+                   
 
+                    
                 }
                 else
                 {
-                    string box_msg = "No record found for Guest ID " + i;
+                    ResetAll();
+                    string box_msg = "This reservation has been closed already";
 
-                    string box_title = "Data not found";
+                    string box_title = "Invalid operation";
 
                     MessageBox.Show(box_msg, box_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                cnn.Close();
             }
-            else
-            {
-                string box_msg = "This reservation has been closed already";
+            catch (Exception){
 
-                string box_title = "Invalid operation";
+                ResetAll();
+                string box_msg = "Reservation record for ID " + i + " doesnot exsist.";
+
+                string box_title = "Information";
 
                 MessageBox.Show(box_msg, box_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
             }
 
         }
